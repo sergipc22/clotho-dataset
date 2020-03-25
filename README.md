@@ -1,6 +1,6 @@
 # Clotho dataset code
 
-Welcome to the repository of Clotho dataset 
+Welcome to the repository of Clotho dataset. 
 
 Here you can find the code that will create numpy files with
 input/output values, for using Clotho dataset with your audio 

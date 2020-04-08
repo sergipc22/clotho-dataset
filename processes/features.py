@@ -13,6 +13,7 @@ from loguru import logger
 
 from tools.file_io import load_numpy_object, dump_numpy_object, load_settings_file
 from tools.argument_parsing import get_argument_parser
+from tqdm import tqdm
 
 __author__ = 'Konstantinos Drossos -- Tampere University'
 __docformat__ = 'reStructuredText'
@@ -59,8 +60,8 @@ def extract_features(settings_data: MutableMapping[str, Any],
     dir_output_eva.mkdir(parents=True, exist_ok=True)
 
     # Apply the function to each file and save the result.
-    for data_file_name in filter(lambda _x: _x.suffix == settings_features['data_files_suffix'],
-                                 chain(dir_dev.iterdir(), dir_eva.iterdir())):
+    for data_file_name in tqdm(filter(lambda _x: _x.suffix == settings_features['data_files_suffix'],
+                                 chain(dir_dev.iterdir(), dir_eva.iterdir()))):
 
         # Load the data file.
         data_file = load_numpy_object(data_file_name)
